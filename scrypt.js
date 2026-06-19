@@ -19,18 +19,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Image Carousel Handler
     var allImages = [
-        'images/image1.jpg',
-        'images/image2.jpg',
-        'images/image3.jpg',
-        'images/image4.jpg',
-        'images/image5.jpg',
-        'images/image7.jpg',
-        'images/image8.jpg',
-        'images/image9.jpg',
-        'images/image10.png',
-        'images/image11.jpg',
-        'images/image12.jpg',
-        'images/image13.jpg',
+        'image1.jpg',
+        'image2.jpg',
+        'image3.jpg',
+        'image4.jpg',
+        'image5.jpg',
+        'image7.jpg',
+        'image8.jpg',
+        'image9.jpg',
+        'image10.png',
+        'image11.jpg',
+        'image12.jpg',
+        'image13.jpg',
     ];
 
     var carouselImage = document.getElementById('carousel-image');

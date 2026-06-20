@@ -1,179 +1,101 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Admission Form Handler
-    var applyButton = document.getElementById('apply-admission-btn');
-    var formContainer = document.getElementById('admission-form-container');
+/* ==========================
+AUTO IMAGE SLIDER
+========================== */
 
-    if (applyButton && formContainer) {
-        applyButton.addEventListener('click', function () {
-            formContainer.classList.remove('hidden');
-            applyButton.style.display = 'none';
+let slideIndex = 0;
+const slides = document.querySelectorAll(".slide");
 
-            var firstField = formContainer.querySelector('input, select, textarea');
-            if (firstField) {
-                firstField.focus();
-            }
-
-            formContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-
-        var admissionForm = document.getElementById('admission-form');
-        var formStatus = document.getElementById('form-status');
-
-        if (admissionForm && formStatus) {
-            admissionForm.addEventListener('submit', function (event) {
-                event.preventDefault();
-
-                if (!admissionForm.checkValidity()) {
-                    formStatus.textContent = 'Please fill in all required fields correctly.';
-                    formStatus.className = 'form-status error';
-                    formStatus.style.display = 'block';
-                    formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    return;
-                }
-
-                formStatus.textContent = 'Sending application...';
-                formStatus.className = 'form-status';
-                formStatus.style.display = 'block';
-                formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-                // Collect form data
-                var formData = {
-                    'entry.46245387': document.getElementById('name').value,
-                    'entry.1669395904': document.getElementById('dob').value,
-                    'entry.780916919': document.getElementById('grade').value,
-                    'entry.1698393657': document.getElementById('father_name').value,
-                    'entry.1978971168': document.getElementById('mother_name').value,
-                    'entry.1561475558': document.getElementById('email').value,
-                    'entry.1992450251': document.getElementById('phone').value
-                };
-
-                // Build URL with parameters
-                var url = 'https://docs.google.com/forms/d/e/1FAIpQLSchoDb4W7Qvp1MDkSGn0z3qP0SJmYPmbjFB3iXPdJ0_ggfE-Q/formResponse?';
-                var params = [];
-                for (var key in formData) {
-                    params.push(encodeURIComponent(key) + '=' + encodeURIComponent(formData[key]));
-                }
-                url += params.join('&');
-
-                // Use image beacon trick to submit (works around CORS)
-                var img = new Image();
-                img.src = url;
-
-                // Show success immediately
-                formStatus.textContent = 'APPLICATION SUBMITTED SUCCESSFULLY! THANK YOU.';
-                formStatus.className = 'form-status success';
-                formStatus.style.display = 'block';
-                admissionForm.reset();
-            });
-        }
-    }
+function showSlides() {
+slides.forEach(slide => {
+slide.classList.remove("active");
 });
 
-// Image Carousel Handler
-var allImages = [
-    'images/image1.jpg',
-    'images/image2.jpg',
-    'images/image3.jpg',
-    'images/image4.jpg',
-    'images/image5.jpg',
-    'images/image7.jpg',
-    'images/image8.jpg',
-    'images/image9.jpg',
-    'images/image10.png',
-    'images/image11.jpg',
-    'images/image12.jpg',
-    'images/image13.jpg',
-];
+```
+slideIndex++;
 
-var carouselImage = document.getElementById('carousel-image');
-var indicatorsContainer = document.getElementById('carousel-indicators');
-var prevBtn = document.getElementById('prev-btn');
-var nextBtn = document.getElementById('next-btn');
-
-if (!carouselImage || !indicatorsContainer) {
-    return;
+if (slideIndex > slides.length) {
+    slideIndex = 1;
 }
 
-var currentImageIndex = 0;
-var autoPlayInterval;
-var autoPlayDelay = 3000; // Change image every 3 seconds
+slides[slideIndex - 1].classList.add("active");
+```
 
-// Create indicator dots
-function createIndicators() {
-    indicatorsContainer.innerHTML = '';
-    allImages.forEach(function (_, index) {
-        var dot = document.createElement('button');
-        dot.className = 'indicator-dot' + (index === 0 ? ' active' : '');
-        dot.addEventListener('click', function () {
-            currentImageIndex = index;
-            updateCarousel();
-            resetAutoPlay();
-        });
-        indicatorsContainer.appendChild(dot);
+}
+
+if (slides.length > 0) {
+showSlides();
+setInterval(showSlides, 4000);
+}
+
+/* ==========================
+MOBILE MENU TOGGLE
+========================== */
+
+const menuBtn = document.getElementById("menu-btn");
+const navMenu = document.getElementById("nav-menu");
+
+if (menuBtn && navMenu) {
+menuBtn.addEventListener("click", () => {
+navMenu.classList.toggle("show");
+});
+}
+
+/* ==========================
+ADMISSION FORM
+========================== */
+
+const admissionForm = document.getElementById("admission-form");
+
+if (admissionForm) {
+admissionForm.addEventListener("submit", function (e) {
+e.preventDefault();
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzdJsRMK4xQTDvbEA2mmvPlf4xCa0WTZJ0_-fg6sguIFruPL0NCX2HQ4bsifwn-OUuEJg/exec";
+
+const admissionForm = document.getElementById("admission-form");
+function doPost(e) {
+  var sheet = SpreadsheetApp.openById("YOUR_SHEET_ID").getSheetByName("Admissions");
+
+  sheet.appendRow([
+    new Date(),
+    e.parameter.name,
+    e.parameter.dob,
+    e.parameter.grade,
+    e.parameter.mother_name,
+    e.parameter.father_name,
+    e.parameter.email,
+    e.parameter.phone,
+    e.parameter.gender
+  ]);
+
+  return ContentService.createTextOutput("Form submitted successfully!");
+}
+
+if (admissionForm) {
+  admissionForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const formData = {
+      name: document.getElementById("name").value,
+      dob: document.getElementById("dob").value,
+      grade: document.getElementById("grade").value,
+      mother_name: document.getElementById("mother_name").value,
+      father_name: document.getElementById("father_name").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      gender: document.querySelector('input[name="gender"]:checked')?.value
+    };function doPost(e) {
+  var sheet = SpreadsheetApp.openById("YOUR_SHEET_ID").getSheetByName("Admissions");
+  sheet.appendRow([e.parameter.name, e.parameter.email, e.parameter.phone]);
+  return ContentService.createTextOutput("Success");
+
+
+    fetch(WEB_APP_URL, {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify(formData)
     });
-}
 
-// Update carousel display
-function updateCarousel() {
-    carouselImage.src = allImages[currentImageIndex];
+    alert("Admission Application Submitted Successfully!");
+    admissionForm.reset();
 
-    // Update active indicator
-    var dots = document.querySelectorAll('.indicator-dot');
-    dots.forEach(function (dot, index) {
-        dot.classList.toggle('active', index === currentImageIndex);
-    });
-}
-
-// Next image
-function nextImage() {
-    currentImageIndex = (currentImageIndex + 1) % allImages.length;
-    updateCarousel();
-}
-
-// Previous image
-function prevImage() {
-    currentImageIndex = (currentImageIndex - 1 + allImages.length) % allImages.length;
-    updateCarousel();
-}
-
-// Auto-play functionality
-function startAutoPlay() {
-    autoPlayInterval = setInterval(nextImage, autoPlayDelay);
-}
-
-function stopAutoPlay() {
-    clearInterval(autoPlayInterval);
-}
-
-function resetAutoPlay() {
-    stopAutoPlay();
-    startAutoPlay();
-}
-
-// Event listeners
-if (nextBtn) {
-    nextBtn.addEventListener('click', function () {
-        nextImage();
-        resetAutoPlay();
-    });
-}
-
-if (prevBtn) {
-    prevBtn.addEventListener('click', function () {
-        prevImage();
-        resetAutoPlay();
-    });
-}
-
-// Pause on hover
-var carouselContainer = document.querySelector('.carousel-container');
-if (carouselContainer) {
-    carouselContainer.addEventListener('mouseenter', stopAutoPlay);
-    carouselContainer.addEventListener('mouseleave', startAutoPlay);
-}
-
-// Initialize carousel
-createIndicators();
-updateCarousel();
-startAutoPlay();
-
+};}

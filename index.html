@@ -9,7 +9,8 @@
     <!-- This is the text that appears on the browser tab,google search tab and search results -->
     <title>Gyan Academy School - Official School Website</title>
     <!-- This is the summary snippet that appears on the browser tab, google search tab and search results -->
-    <meta name="description" content="Welcome to Gyan Academy School, a leading educational institution committed to providing quality education and fostering holistic development.">
+    <meta name="description"
+        content="Welcome to Gyan Academy School, a leading educational institution committed to providing quality education and fostering holistic development.">
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -43,15 +44,16 @@
             <button type="button" class="btn-primary" id="apply-admission-btn">Apply Admission</button>
             <h4>Form To Apply For Admission</h4>
             <div id="admission-form-container" class="hidden">
-                <form action="submit.php" method="post">
+                <form id="admission-form">
+                    <div id="form-status" class="form-status" aria-live="polite"></div>
                     <div>
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="date" name="dob" placeholder="Date of Birth" required>
-                        <input type="number" name="grade" placeholder="Grade Applying For" required>
-                        <input type="text" name="mother_name" placeholder="Mother's Name" required>
-                        <input type="text" name="father_name" placeholder="Father's Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
-                        <input type="tel" name="phone" placeholder="Your Phone Number">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                        <input type="date" id="dob" placeholder="Date of Birth" required>
+                        <input type="number" id="grade" placeholder="Grade Applying For" required>
+                        <input type="text" id="mother_name" placeholder="Mother's Name" required>
+                        <input type="text" id="father_name" placeholder="Father's Name" required>
+                        <input type="email" id="email" placeholder="Your Email" required>
+                        <input type="tel" id="phone" placeholder="Your Phone Number">
                     </div>
                     <div class="gender-group">
                         <label>
@@ -92,7 +94,7 @@
     <!-- Image Carousel Section -->
     <section class="carousel-section">
         <div class="carousel-container">
-            <img id="carousel-image" src="image1.jpg" alt="Gyan Academy Gallery" class="carousel-image">
+            <img id="carousel-image" src="images/image1.jpg" alt="Gyan Academy Gallery" class="carousel-image">
             <div class="carousel-controls">
                 <button class="carousel-btn prev" id="prev-btn">&#10094;</button>
                 <button class="carousel-btn next" id="next-btn">&#10095;</button>
@@ -234,4 +236,5 @@
     </footer>
     <script src="scrypt.js"></script>
 </body>
+
 </html>

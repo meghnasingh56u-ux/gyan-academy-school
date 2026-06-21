@@ -30,6 +30,9 @@ setInterval(showSlides, 4000);
 /* ==========================
 MOBILE MENU TOGGLE
 ========================== */
+function toggleMenu() {
+  document.querySelector(".navbar ul").classList.toggle("show");
+}
 
 const menuBtn = document.getElementById("menu-btn");
 const navMenu = document.getElementById("nav-menu");

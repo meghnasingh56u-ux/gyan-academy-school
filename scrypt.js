@@ -44,7 +44,7 @@ navMenu.classList.toggle("show");
 ADMISSION FORM
 ========================== */
 function doPost(e) {
-  var sheet = SpreadsheetApp.openById("1-x0OGFfOKi3InuVGC6wNKORUsvTL1ERTF0Homx7SS8")
+  var sheet = SpreadsheetApp.openById("1-x0OGFfOKi3InuVGC6wNKORUsvyTL1ERTF0Homx7SS8")
                             .getSheetByName("Form Responses 1");
 
   // Require at least name + email
@@ -88,7 +88,7 @@ if (admissionForm) {
   return ContentService.createTextOutput("Success");
 
 
-    fetch(WEB_APP_URL("https://script.google.com/macros/s/AKfycbwAGGB0Awxuc_-KmVSb_xSA2Pcc8rkBFa-G9V5KsNxv4ubFOX1Ibvd6LcQNg27VuhCMGA/exec,") {
+    fetch(WEB_APP_URL("https://script.google.com/macros/s/AKfycbyZIb7h7AWMY3K2O0dKD5T82PJm1D__c0gmJs1zmftN4y4mGC2nI2NL8KjrTsqUuBna-w/exec") {
       method: "POST",
       mode: "no-cors",
       body: JSON.stringify(formData)

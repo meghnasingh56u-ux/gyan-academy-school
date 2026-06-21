@@ -49,11 +49,11 @@ const admissionForm = document.getElementById("admission-form");
 if (admissionForm) {
 admissionForm.addEventListener("submit", function (e) {
 e.preventDefault();
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzdJsRMK4xQTDvbEA2mmvPlf4xCa0WTZJ0_-fg6sguIFruPL0NCX2HQ4bsifwn-OUuEJg/exec";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxQkpQAdJRV8ytpVciHWv1sy_y_lH5NKx7CdKhNXISlYkAyzwZbmW1Zpy2q6tOV1kaaDA/exec";
 
 const admissionForm = document.getElementById("admission-form");
 function doPost(e) {
-  var sheet = SpreadsheetApp.openById("YOUR_SHEET_ID").getSheetByName("Admissions");
+  var sheet = SpreadsheetApp.openById("1-x0OGFfOKi3InuVGC6wNKORUsvyTL1ERTF0Homx7SS8").getSheetByName("Admissions");
 
   sheet.appendRow([
     new Date(),

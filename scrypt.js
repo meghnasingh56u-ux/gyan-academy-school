@@ -57,8 +57,8 @@ function doPost(e) {
     e.parameter.name,                  // Student name
     e.parameter.dob,                   // Date of birth
     e.parameter.grade,                 // Grade
-    e.parameter.mother_name,           // Mother's name
     e.parameter.father_name,           // Father's name
+    e.parameter.mother_name,           // Mother's name
     e.parameter.email,                 // Email
     e.parameter.phone,                 // Phone
     e.parameter.gender                 // Gender
@@ -77,8 +77,8 @@ if (admissionForm) {
       name: document.getElementById("name").value,
       dob: document.getElementById("dob").value,
       grade: document.getElementById("grade").value,
-      mother_name: document.getElementById("mother_name").value,
       father_name: document.getElementById("father_name").value,
+      mother_name: document.getElementById("mother_name").value,
       email: document.getElementById("email").value,
       phone: document.getElementById("phone").value,
       gender: document.querySelector('input[name="gender"]:checked')?.value

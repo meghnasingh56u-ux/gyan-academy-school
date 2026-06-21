@@ -88,7 +88,7 @@ if (admissionForm) {
   return ContentService.createTextOutput("Success");
 
 
-    fetch(WEB_APP_URL, {
+    fetch(WEB_APP_URL("https://script.google.com/macros/s/AKfycbwAGGB0Awxuc_-KmVSb_xSA2Pcc8rkBFa-G9V5KsNxv4ubFOX1Ibvd6LcQNg27VuhCMGA/exec,") {
       method: "POST",
       mode: "no-cors",
       body: JSON.stringify(formData)

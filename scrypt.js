@@ -49,11 +49,26 @@ const admissionForm = document.getElementById("admission-form");
 if (admissionForm) {
 admissionForm.addEventListener("submit", function (e) {
 e.preventDefault();
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxQkpQAdJRV8ytpVciHWv1sy_y_lH5NKx7CdKhNXISlYkAyzwZbmW1Zpy2q6tOV1kaaDA/exec";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzZEqtjLZKjoXRd8yrr5pu54EhZMk6-J9VH4B651uNZxGeVfq413EAgKzIVbZ7Mc6AHkQ/exec";
 
+// Create form data to send const formData = new FormData(admissionForm);
 const admissionForm = document.getElementById("admission-form");
 function doPost(e) {
-  var sheet = SpreadsheetApp.openById("1-x0OGFfOKi3InuVGC6wNKORUsvyTL1ERTF0Homx7SS8").getSheetByName("Admissions");
+  fetch("1-x0OGFfOKi3InuVGC6wNKORUsvyTL1ERTF0Homx7SS8"){
+    method: "Post", 
+    body: formData,
+        mode: "no-cors" // Prevents CORS errors on submission})
+      .then(() => {
+          alert("Form Submitted Successfully!")
+              admissionForm.reset();})
+        .catch(error => {
+            console.error("Error!",
+                          error.massage);
+            alert("Something went wrong. Please try again.");
+        });
+  });
+}
+        .getSheetByName("Admissions");
 
   sheet.appendRow([
     new Date(),

@@ -48,23 +48,28 @@ const admissionForm = document.getElementById("admission-form");
 
 if (admissionForm) {
 admissionForm.addEventListener("submit", function (e) {
-e.preventDefault();
+e.preventDefault(); // This stops the browser from reloading into a 405 error page
+
+    // Your exact live deployment Web App link
 const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzZEqtjLZKjoXRd8yrr5pu54EhZMk6-J9VH4B651uNZxGeVfq413EAgKzIVbZ7Mc6AHkQ/exec";
 
-// Create form data to send const formData = new FormData(admissionForm);
-const admissionForm = document.getElementById("admission-form");
-function doPost(e) {
-  fetch("1-x0OGFfOKi3InuVGC6wNKORUsvyTL1ERTF0Homx7SS8"){
+// Gather data from the form fields automatically
+const formData = new FormData(admissionForm)
+
+    // Send the data over to your Google Sheet backend
+  fetch(WEB_APP_URL("1-x0OGFfOKi3InuVGC6wNKORUsvyTL1ERTF0Homx7SS8"){
     method: "Post", 
     body: formData,
-        mode: "no-cors" // Prevents CORS errors on submission})
+        mode: "no-cors" // Crucial to bypass cross-origin browser blocks
+        })
       .then(() => {
           alert("Form Submitted Successfully!")
-              admissionForm.reset();})
+              admissionForm.reset(); // Clears the form inputs after successful send
+      })
         .catch(error => {
-            console.error("Error!",
-                          error.massage);
-            alert("Something went wrong. Please try again.");
+            console.error("Error submitting form:", error);
+        
+            alert("Something went wrong. Please check your network and try again.");
         });
   });
 }

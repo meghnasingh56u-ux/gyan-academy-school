@@ -43,52 +43,31 @@ navMenu.classList.toggle("show");
 /* ==========================
 ADMISSION FORM
 ========================== */
+function doPost(e) {
+  var sheet = SpreadsheetApp.openById("1-x0OGFfOKi3InuVGC6wNKORUsvTL1ERTF0Homx7SS8")
+                            .getSheetByName("Form Responses 1");
 
-const admissionForm = document.getElementById("admission-form");
-
-if (admissionForm) {
-admissionForm.addEventListener("submit", function (e) {
-e.preventDefault(); // This stops the browser from reloading into a 405 error page
-
-    // Your exact live deployment Web App link
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzZEqtjLZKjoXRd8yrr5pu54EhZMk6-J9VH4B651uNZxGeVfq413EAgKzIVbZ7Mc6AHkQ/exec";
-
-// Gather data from the form fields automatically
-const formData = new FormData(admissionForm)
-
-    // Send the data over to your Google Sheet backend
-  fetch(WEB_APP_URL("1-x0OGFfOKi3InuVGC6wNKORUsvyTL1ERTF0Homx7SS8"){
-    method: "Post", 
-    body: formData,
-        mode: "no-cors" // Crucial to bypass cross-origin browser blocks
-        })
-      .then(() => {
-          alert("Form Submitted Successfully!")
-              admissionForm.reset(); // Clears the form inputs after successful send
-      })
-        .catch(error => {
-            console.error("Error submitting form:", error);
-        
-            alert("Something went wrong. Please check your network and try again.");
-        });
-  });
-}
-        .getSheetByName("Admissions");
+  // Require at least name + email
+  if (!e.parameter.name || !e.parameter.email) {
+    return ContentService.createTextOutput("Error: Name and Email are required.");
+  }
 
   sheet.appendRow([
-    new Date(),
-    e.parameter.name,
-    e.parameter.dob,
-    e.parameter.grade,
-    e.parameter.mother_name,
-    e.parameter.father_name,
-    e.parameter.email,
-    e.parameter.phone,
-    e.parameter.gender
+    new Date(),                        // Timestamp
+    e.parameter.name,                  // Student name
+    e.parameter.dob,                   // Date of birth
+    e.parameter.grade,                 // Grade
+    e.parameter.mother_name,           // Mother's name
+    e.parameter.father_name,           // Father's name
+    e.parameter.email,                 // Email
+    e.parameter.phone,                 // Phone
+    e.parameter.gender                 // Gender
   ]);
 
   return ContentService.createTextOutput("Form submitted successfully!");
 }
+
+const admissionForm = document.getElementById("admission-form")
 
 if (admissionForm) {
   admissionForm.addEventListener("submit", function(e) {

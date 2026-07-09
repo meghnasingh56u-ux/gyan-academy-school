@@ -1,0 +1,648 @@
+/*==================================================
+                FACILITIES PAGE
+==================================================*/
+
+:root{
+
+    --primary:#0B5ED7;
+    --secondary:#FFC107;
+    --dark:#222;
+    --text:#666;
+    --light:#fff;
+    --bg:#f8fbff;
+
+}
+
+/*==================================================
+                HERO SECTION
+==================================================*/
+
+.facilities-hero{
+
+    position:relative;
+    height:60vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+
+}
+
+.facilities-hero img{
+
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+}
+
+.hero-overlay{
+
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.55);
+
+}
+
+.hero-content{
+
+    position:relative;
+    z-index:2;
+    max-width:700px;
+    text-align:center;
+    color:#fff;
+
+}
+
+.hero-content span{
+
+    display:inline-block;
+    padding:8px 22px;
+    background:rgba(255,255,255,.15);
+    border-radius:50px;
+    margin-bottom:20px;
+    backdrop-filter:blur(8px);
+
+}
+
+.hero-content h1{
+
+    font-size:52px;
+    line-height:1.2;
+    margin-bottom:20px;
+
+}
+
+.hero-content p{
+
+    font-size:17px;
+    line-height:1.8;
+
+}
+
+/*==================================================
+                INTRODUCTION
+==================================================*/
+
+.facilities-intro{
+
+    padding:100px 0;
+    background:#fff;
+
+}
+
+.section-heading{
+
+    max-width:760px;
+    margin:auto;
+    text-align:center;
+    margin-bottom:60px;
+
+}
+
+.section-heading span{
+
+    color:var(--primary);
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+}
+
+.section-heading h2{
+
+    font-size:42px;
+    margin:15px 0;
+
+}
+
+.section-heading p{
+
+    color:var(--text);
+    line-height:1.8;
+
+}
+
+/*==================================================
+            QUICK NAVIGATION
+==================================================*/
+
+.facility-navigation{
+
+    padding:80px 0;
+    background:var(--bg);
+
+}
+
+.facility-nav-grid{
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+
+}
+
+.facility-nav-card{
+
+    background:#fff;
+    text-align:center;
+    padding:35px 25px;
+    border-radius:20px;
+    text-decoration:none;
+    color:var(--dark);
+    transition:.35s;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.facility-nav-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.facility-nav-card i{
+
+    font-size:42px;
+    color:var(--primary);
+    margin-bottom:20px;
+
+}
+
+.facility-nav-card h3{
+
+    margin-bottom:10px;
+
+}
+
+.facility-nav-card p{
+
+    color:var(--text);
+    font-size:15px;
+    line-height:1.6;
+
+}
+
+/*==================================================
+            FACILITY SECTION
+==================================================*/
+
+.facility-category{
+
+    padding:100px 0;
+
+}
+
+.facility-grid{
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+
+}
+
+.facility-card{
+
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    transition:.35s;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.facility-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.facility-image{
+
+    overflow:hidden;
+
+}
+
+.facility-image img{
+
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    transition:.5s;
+
+}
+
+.facility-card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.facility-info{
+
+    padding:30px;
+
+}
+
+.facility-info i{
+
+    width:60px;
+    height:60px;
+    background:#eef5ff;
+    color:var(--primary);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    margin-bottom:20px;
+
+}
+
+.facility-info h3{
+
+    margin-bottom:15px;
+    color:var(--dark);
+
+}
+
+.facility-info p{
+
+    color:var(--text);
+    line-height:1.8;
+
+}
+
+/*==================================================
+                ADMISSION CTA
+==================================================*/
+
+.facility-cta{
+
+    padding:100px 0;
+    background:linear-gradient(135deg,#0B5ED7,#084298);
+    color:#fff;
+
+}
+
+.cta-content{
+
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+
+}
+
+.cta-subtitle{
+
+    display:inline-block;
+    padding:10px 22px;
+    border-radius:50px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    margin-bottom:20px;
+    font-weight:600;
+    letter-spacing:1px;
+
+}
+
+.cta-content h2{
+
+    font-size:42px;
+    margin-bottom:20px;
+
+}
+
+.cta-content p{
+
+    font-size:17px;
+    line-height:1.8;
+    margin-bottom:40px;
+
+}
+
+.cta-buttons{
+
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+
+}
+
+/*==================================================
+                BUTTONS
+==================================================*/
+
+.btn{
+
+    display:inline-block;
+    padding:15px 35px;
+    background:#FFC107;
+    color:#222;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:600;
+    transition:.35s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-5px);
+    background:#fff;
+
+}
+
+.btn-outline{
+
+    background:transparent;
+    border:2px solid #fff;
+    color:#fff;
+
+}
+
+.btn-outline:hover{
+
+    background:#fff;
+    color:#0B5ED7;
+
+}
+
+/*==================================================
+                HOVER EFFECTS
+==================================================*/
+
+.facility-card{
+
+    position:relative;
+
+}
+
+.facility-card::before{
+
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:4px;
+    background:#0B5ED7;
+    transform:scaleX(0);
+    transition:.35s;
+
+}
+
+.facility-card:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+.facility-card:hover{
+
+    box-shadow:0 20px 45px rgba(11,94,215,.18);
+
+}
+
+.facility-info h3{
+
+    transition:.3s;
+
+}
+
+.facility-card:hover h3{
+
+    color:#0B5ED7;
+
+}
+
+.facility-info i{
+
+    transition:.35s;
+
+}
+
+.facility-card:hover i{
+
+    transform:rotate(10deg) scale(1.1);
+
+}
+
+/*==================================================
+                SMOOTH SCROLL
+==================================================*/
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+.facility-category{
+
+    scroll-margin-top:110px;
+
+}
+
+/*==================================================
+                RESPONSIVE
+==================================================*/
+
+@media(max-width:992px){
+
+.hero-content h1{
+
+font-size:42px;
+
+}
+
+.facility-nav-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.facility-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.section-heading h2{
+
+font-size:36px;
+
+}
+
+}
+
+
+
+@media(max-width:768px){
+
+.facilities-hero{
+
+height:50vh;
+
+}
+
+.hero-content h1{
+
+font-size:34px;
+
+}
+
+.hero-content p{
+
+font-size:15px;
+
+}
+
+.section-heading{
+
+margin-bottom:40px;
+
+}
+
+.section-heading h2{
+
+font-size:30px;
+
+}
+
+.facility-nav-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.facility-grid{
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 20px;
+  padding:10px 0 20px;
+  scroll-snap-type: mandatory;
+  -webkit-overflow-scrolling:touch;
+}
+
+.facility-grid::-webkit-scrollbar{
+    height: 6px;
+}
+
+.facility-grid::-webkit-scrollbar-thumb{
+   background: #0B5ED7;
+   border-radius: 20px;
+}
+
+.facility-card{
+    min-width: 300px;
+    max-width: 300px;
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+}
+
+.facility-image img{
+
+height:220px;
+
+}
+
+.facility-info{
+
+padding:25px;
+
+}
+
+.cta-content h2{
+
+font-size:30px;
+
+}
+
+.cta-buttons{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.btn{
+
+width:220px;
+text-align:center;
+
+}
+
+}
+
+
+
+@media(max-width:576px){
+
+.facilities-intro,
+.facility-navigation,
+.facility-category,
+.facility-cta{
+
+padding:70px 0;
+
+}
+
+.hero-content{
+
+padding:0 20px;
+
+}
+
+.hero-content h1{
+
+font-size:28px;
+
+}
+
+.section-heading h2{
+
+font-size:26px;
+
+}
+
+.facility-info h3{
+
+font-size:22px;
+
+}
+
+.facility-nav-card{
+
+padding:30px 20px;
+
+}
+
+}
+
+.facility-card{
+
+    opacity:1;
+    transform:none;
+    transition:.35s;
+
+}
+
+.facility-card.show{
+
+    opacity:1;
+    transform:translateY(0);
+
+}
+
+.facility-nav-card.active{
+
+    background:#0B5ED7;
+    color:#fff;
+
+}
+

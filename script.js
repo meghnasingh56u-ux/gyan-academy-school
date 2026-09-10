@@ -10,15 +10,18 @@
 const menuToggle = document.querySelector(".menu-toggle");
 const mobileMenu = document.querySelector(".mobile-menu");
 
-menuToggle.addEventListener("click", () => {
-    mobileMenu.classList.toggle("active");
+if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+        const isOpen = mobileMenu.classList.toggle("active");
+        menuToggle.setAttribute("aria-expanded", isOpen);
 
-    if (mobileMenu.classList.contains("active")) {
-        menuToggle.innerHTML = '<i class="fa-solid fa-xmark"></i>';
-    } else {
-        menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-    }
-});
+        if (isOpen) {
+            menuToggle.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        } else {
+            menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        }
+    });
+}
 
 // ===============================
 // MOBILE ACCORDION
@@ -252,7 +255,7 @@ faqItems.forEach(item => {
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
-    anchor.addEventListener("click", function(e) {
+    anchor.addEventListener("click", function (e) {
 
         const target = document.querySelector(this.getAttribute("href"));
 
@@ -455,7 +458,7 @@ const contactForm = document.querySelector(".contact-form form");
 
 if (contactForm) {
 
-    contactForm.addEventListener("submit", function(e) {
+    contactForm.addEventListener("submit", function (e) {
 
         e.preventDefault();
 
@@ -527,10 +530,10 @@ buttons.forEach(button => {
 // ===============================
 
 console.log("%cWelcome to Gyan Academy",
-"color:#0B5ED7;font-size:22px;font-weight:bold;");
+    "color:#0B5ED7;font-size:22px;font-weight:bold;");
 
 console.log("%cWebsite Developed with HTML, CSS & JavaScript",
-"color:green;font-size:14px;");
+    "color:green;font-size:14px;");
 
 const facilitiesSwiper = new Swiper(".facilitiesSwiper", {
 
@@ -567,93 +570,93 @@ const facilitiesSwiper = new Swiper(".facilitiesSwiper", {
 
 });
 
-const gallerySwiper = new Swiper(".gallerySwiper",{
+const gallerySwiper = new Swiper(".gallerySwiper", {
 
-    loop:true,
+    loop: true,
 
-    spaceBetween:25,
+    spaceBetween: 25,
 
-    autoplay:{
+    autoplay: {
 
-        delay:2500,
+        delay: 2500,
 
-        disableOnInteraction:false
-
-    },
-
-    navigation:{
-
-        nextEl:".gallery-section .swiper-button-next",
-
-        prevEl:".gallery-section .swiper-button-prev"
+        disableOnInteraction: false
 
     },
 
-    pagination:{
+    navigation: {
 
-        el:".gallery-section .swiper-pagination",
+        nextEl: ".gallery-section .swiper-button-next",
 
-        clickable:true
+        prevEl: ".gallery-section .swiper-button-prev"
 
     },
 
-    breakpoints:{
+    pagination: {
 
-        0:{
-            slidesPerView:1
+        el: ".gallery-section .swiper-pagination",
+
+        clickable: true
+
+    },
+
+    breakpoints: {
+
+        0: {
+            slidesPerView: 1
         },
 
-        768:{
-            slidesPerView:2
+        768: {
+            slidesPerView: 2
         },
 
-        1200:{
-            slidesPerView:3
+        1200: {
+            slidesPerView: 3
         }
 
     }
 
 });
 
-const testimonialSwiper = new Swiper(".testimonialSwiper",{
+const testimonialSwiper = new Swiper(".testimonialSwiper", {
 
-    loop:true,
+    loop: true,
 
-    autoplay:{
+    autoplay: {
 
-        delay:4000,
+        delay: 4000,
 
-        disableOnInteraction:false
-
-    },
-
-    spaceBetween:30,
-
-    pagination:{
-
-        el:".testimonial-section .swiper-pagination",
-
-        clickable:true
+        disableOnInteraction: false
 
     },
 
-    breakpoints:{
+    spaceBetween: 30,
 
-        0:{
+    pagination: {
 
-            slidesPerView:1
+        el: ".testimonial-section .swiper-pagination",
+
+        clickable: true
+
+    },
+
+    breakpoints: {
+
+        0: {
+
+            slidesPerView: 1
 
         },
 
-        768:{
+        768: {
 
-            slidesPerView:2
+            slidesPerView: 2
 
         },
 
-        1200:{
+        1200: {
 
-            slidesPerView:3
+            slidesPerView: 3
 
         }
 
@@ -665,12 +668,13 @@ const testimonialSwiper = new Swiper(".testimonialSwiper",{
 FORM SUBMISSION
 =========================================*/
 
-const admissionForm=document.querySelector("#admissionPopup form");
+const admissionForm = document.querySelector("#admissionPopup form");
 
-if(admissionForm){
+if (admissionForm) {
 
-    admissionForm.addEventListener("submit",function(){
+    admissionForm.addEventListener("submit", function () {
 
         alert("Thank you! Your admission form has been submitted successfully.");
 
-    });}
+    });
+}
